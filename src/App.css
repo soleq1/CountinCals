@@ -1,0 +1,134 @@
+html{
+ 
+  /* background-color: rgb(237, 237, 249); */
+  font-family: 'Roboto',sans-serif;
+  /* background-color: rgba(14, 45, 165, 0.947); Adjust the alpha value for desired transparency */
+
+
+  
+}
+
+.Container{
+
+}
+.Bg-Container{
+}
+.AiMsg{
+  background-color: rgb(61, 56, 60);
+  font-size:24px;
+  color:#EFE1D1;
+  margin:20px 0px;
+  padding:10px;
+  border-radius: 10px;
+  /* width:1000px; */
+  /* height:250px; */
+}
+.spinCont{
+  display:flex;
+  justify-content: center;
+}
+.spinner{
+  margin:5px;
+  height:36px;
+  width:36px;
+  border:5px solid rgb(167, 130, 149);
+  border-top:solid 5px black;
+  border-radius: 50%;
+  animation: spin .8s infinite;
+}
+@keyframes spin{
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.foodLookUp{
+  display: flex;
+  justify-content: center;
+  height:45px;
+
+
+}
+.foodLookUp-Submit{
+  /* border-radius: 10px; */
+  border:solid black ;
+  border-left:none;
+border-radius: 0px 5px 5px 0px;
+  align-items: center;
+  display:flex;
+  background-color: #484848;
+
+
+  
+}
+.foodLookUp-Submit:hover{
+  background-color: #484848;
+}
+.foodLookUp-Input{
+  border:solid black;
+  border-right:none;
+  background-color: #484848;
+  border-radius: 5px 0px 0px 5px;
+  color:rgb(255, 255, 255);
+  width:55%;
+
+}::placeholder{
+  color:white;
+  font-size: 16px;
+}
+.foodLookUp-Input:focus{
+  /* background-color:#55815e; */
+  /* color:white; */
+  /* border:solid black; */
+  outline:none;
+  font-size: 16px;
+
+  /* border-right:none; */
+  
+}
+.svgSub{
+  fill:white;
+}
+.Nav{
+  display: flex;
+  justify-content: space-between;
+}
+.Nav-Auth{
+  display: flex;
+  /* gap:10px; */
+  margin-right:25px;
+}
+.Calorie-Container{
+  display:grid;
+  justify-content: center;
+  
+}
+.Calorie-Grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns of equal width */
+  background-color: #f0f0f0;
+  padding:20px;
+  gap: 10px;
+}
+.Calories{
+
+  grid-column: span 3;
+  
+  /* padding: 20px; */
+  text-align: center;
+}
+.Calorie-BreakDown{
+  grid-column: span 1;
+
+  } 
+.AddCal{
+  justify-content: center;
+  display: flex;
+}
+.plusSvg{
+  background: none;
+  border:none;  
+  cursor: pointer;
+}
+.flexEmail{
+  display:flex;
+  gap:5px;
+}

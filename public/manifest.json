@@ -1,0 +1,17 @@
+{
+    "name": "Counting Cals",
+    "short_name": "Calorie",
+    "theme_color": "#ffcbe4",
+    "background_color": "#fa99ca",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "description": "Calorie Counter App",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "/logo.png",
+            "sizes": "192x192"
+        }
+    ]
+}
