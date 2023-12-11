@@ -1,7 +1,4 @@
-import { initializeApp } from "firebase-admin";
 import { Navigation } from "./Navigation"
-import Response from "./Response"
-import { GoogleAuthProvider, browserLocalPersistence, getAuth, onAuthStateChanged, setPersistence, signInWithPopup } from "firebase/auth";
 import { useEffect, useRef, useState } from "react";
 import { Navbar } from "./NavBar";
 
