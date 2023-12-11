@@ -8,6 +8,9 @@ import axios from "axios";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithRedirect, signInAnonymously, onAuthStateChanged } from "firebase/auth";
 import Response from './components/Response'
 import { useState,useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { Favorites } from './components/Favorites';
+import { initializeAppCheck,ReCaptchaV3Provider } from 'firebase/app-check';
 
 
 
@@ -27,26 +30,28 @@ function App() {
       appId: "1:42681539056:web:dd1ccdb2d67d270fcb2535"
     };
     
-    // Initialize Firebase
+
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app)
   
     const [user, setUser] = useState(null);
     const [userId,setUserId] = useState(null)
     const [calories,setCalories] = useState(null)
-  
-    
+    const [lock,setLock] = useState(false)
+    const appCheck = initializeAppCheck(app,{
+      provider:new ReCaptchaV3Provider('6Ld3-y0pAAAAAGX2tIVxxVTTeKXQu9S_2UK4CEQQ')
+    })  
     useEffect(() => {
       onAuthStateChanged(auth, (user) => {
           if (user) {
             // User is signed in
             setUserId(user.uid)
             setUser(user)
-
+            setLock(true)
           } else {
             // User is signed out
             console.log('User is signed out');
-            
+            setLock(false)
           }
         });
         
@@ -84,16 +89,22 @@ function App() {
   
 
   return (
+
     <div className='Container'>
       <div className="Nav">
   
-  <div>Logo</div>
-  {user ? <div className='flexEmail'><div>{user?.email}</div><button onClick={handleLogout}>Sign Out</button></div>:<button className="Nav-Auth" onClick={handleLogin}>Google Login</button>}
+  <img className='Logo' src={'logo.png'}></img>
+  {user ? <div className='flexEmail'><div>{user?.email}</div>{/* <button onClick={handleLogout}>Sign Out</button> */}</div>:<button className="Nav-Auth" onClick={handleLogin}>Google Login</button>}
   
 </div>
 
+
       <Calories uid={userId} />
-    <Response />
+    <Response lock={lock} />
+    
+
+
+
      </div>
   )
 }

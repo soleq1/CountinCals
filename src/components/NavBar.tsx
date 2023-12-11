@@ -30,7 +30,7 @@ const firebaseConfig = {
   const [user, setUser] = useState(null);
   const [userId,setUserId] = useState(null)
   const [calories,setCalories] = useState(null)
-
+  
   
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -41,49 +41,50 @@ const firebaseConfig = {
 
         } else {
           // User is signed out
+          setUser(null)
           console.log('User is signed out');
         }
       });
       
     }, []);
 
-    useEffect(() =>{
-        const fetchCal = async () =>{
-  
-            try{
-                const response = await axios.post('http://localhost:3000/userCalorie', {uid: userId });
-                // const data = response.json();    
-            }
-            catch(error){
-                console.log(error)
-            }
-        }
-
-          fetchCal(); // Only fetch when uid is available
-        
-    },[user])
     const handleLogin = () => {
-    // const auth = getAuth(app);
-    const signIn = async () => {
-      try {
-        const userCred = await signInWithPopup(auth, provider);
-
-        setPersistence(auth,browserLocalPersistence)
-        setUser(userCred.user);
-      } catch (error) {
-        console.error(error);
+      // const auth = getAuth(app);
+      const signIn = async () => {
+        try {
+          const userCred = await signInWithPopup(auth, provider);
+  
+          setPersistence(auth,browserLocalPersistence)
+          setUser(userCred.user);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      
+      signIn(); 
+  };
+      const handleLogout = () =>{
+        const signOut = async () =>{
+          try{
+            auth.signOut()
+            setUser(null)     
+          }
+          catch(error){
+            console.log(error)
+          }
+        }
+        signOut()
       }
-    };
-    
-    signIn(); 
-};
     
     return (
-        <div className="Nav">
+      <div className='Container'>
 
-            <div>Logo</div>
-            {user ? <img src={user?.photoURL}></img>:<button className="Nav-Auth" onClick={handleLogin}>Login With Google</button>}
-            
-        </div>
+      <div className="Nav">
+  
+      <img className='Logo' src={'logo.png'}></img>
+      {user ? <div className='flexEmail'><div>{user?.email}</div><button onClick={handleLogout}>Sign Out</button></div>:<button className="Nav-Auth" onClick={handleLogin}>Google Login</button>}
+      
+    </div>
+      </div>
     )
 }

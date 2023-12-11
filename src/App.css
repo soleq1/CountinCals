@@ -3,25 +3,59 @@ html{
   /* background-color: rgb(237, 237, 249); */
   font-family: 'Roboto',sans-serif;
   /* background-color: rgba(14, 45, 165, 0.947); Adjust the alpha value for desired transparency */
-
-
+overflow-x: hidden;
+overflow-y: hidden;
   
+}
+input{
+  color:black;
 }
 
 .Container{
 
+
+}
+.Bg-Cont-Cont{
+  display: flex;
+  justify-self: center;
+  height:200px;
+
 }
 .Bg-Container{
+
+   max-width:50%;
+   min-width:30%; 
+
+  align-items: center;
+
+ margin:auto;
+  height:10vh;
+  /* min-height:20vh;  */
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y:scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none; 
+}
+.Bg-Container::-webkit-scrollbar{
+  display:none;
+}
+.ClearBut{
+  /* display:flex; */
+  display: flex;
+  justify-content: right;
+  border:none;
+  cursor: pointer;
 }
 .AiMsg{
   background-color: rgb(61, 56, 60);
-  font-size:24px;
+  font-size:16px;
+  width:fit-content;
   color:#EFE1D1;
-  margin:20px 0px;
+  margin:10px 0px;
   padding:10px;
   border-radius: 10px;
-  /* width:1000px; */
-  /* height:250px; */
+  
 }
 .spinCont{
   display:flex;
@@ -44,7 +78,7 @@ html{
   display: flex;
   justify-content: center;
   height:45px;
-
+  
 
 }
 .foodLookUp-Submit{
@@ -71,7 +105,7 @@ border-radius: 0px 5px 5px 0px;
   width:55%;
 
 }::placeholder{
-  color:white;
+  color:grey;
   font-size: 16px;
 }
 .foodLookUp-Input:focus{
@@ -84,10 +118,31 @@ border-radius: 0px 5px 5px 0px;
   /* border-right:none; */
   
 }
+.BottomBar{
+  position: fixed;
+  bottom:0;
+
+  /* margin-top:20px; */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55%;
+}
+.Locked{
+
+  backdrop-filter:blur(.7px)
+}
 .svgSub{
   fill:white;
 }
+.Logo{
+  margin-top:25px;
+
+  width:75px;
+}
 .Nav{
+  margin: 0px;
+  height:20px;
+  align-items: center;
   display: flex;
   justify-content: space-between;
 }
@@ -103,25 +158,26 @@ border-radius: 0px 5px 5px 0px;
 }
 .Calorie-Grid{
   display: grid;
+
   grid-template-columns: repeat(3, 1fr); /* Three columns of equal width */
   background-color: #f0f0f0;
   padding:20px;
   gap: 10px;
 }
 .Calories{
-
   grid-column: span 3;
-  
-  /* padding: 20px; */
   text-align: center;
+
 }
 .Calorie-BreakDown{
   grid-column: span 1;
 
   } 
 .AddCal{
+  margin-top:15px;
   justify-content: center;
   display: flex;
+  z-index: 4;
 }
 .plusSvg{
   background: none;
@@ -130,5 +186,271 @@ border-radius: 0px 5px 5px 0px;
 }
 .flexEmail{
   display:flex;
+  
   gap:5px;
+  
 }
+.Warn{
+  overflow: break-word;
+  
+}
+
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  height:fit-content;
+  width:30%;
+  justify-content: flex-end;
+  display: flex;
+
+}
+
+.popup-button{
+  z-index: 50;
+  height:5px;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  
+
+}
+
+.popup-x{
+  fill:#4070c4;
+  transition: 0.3s ease-in;
+  height:24px;
+  /* width:16px; */
+}
+.popup-x:hover{
+  fill:grey;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.Navigation-Container{
+  display:flex;
+  justify-content: center;
+  
+}
+.Navigation-Button{
+  /* border:none; */
+  background-color:inherit;
+  padding: 5px;
+  border:1px black solid;
+  width:25%;
+  transition:color 1s ease-in
+}
+.Navigation-Button:hover{
+  background-color:#4070c4 ;
+  background-color: #4070c4 .5;
+
+}
+.Navigation-Favorite {
+  position: fixed;
+  width: 55%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.Favorite-Container{
+  margin-top: 5%;
+  display:flex;
+  text-align: center;
+  justify-content: center;
+  /* height:10vh; */
+  
+}
+.Favorites{
+  display:flex;
+  margin: 15px 0;
+
+  /* overflow:hidden; */
+  /* overflow: hidden;
+  overflow-x: hidden;
+  overflow-y:scroll;
+  text-align: justify; */
+
+}
+.Favorite-Scroll{
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y:scroll;
+  height:80vh;
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none; 
+}
+.Favorite-Scroll::-webkit-scrollbar{
+  display:none;
+}
+.FavoriteBut{
+  border:none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.Food-Form{
+  /* display:flex; */
+  height:fit-content;
+  border:solid black 1px;
+  border-radius:5px;
+}
+
+.history{
+  margin-top:15px;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y:scroll;
+  min-height:15vh;
+  max-width: 250px;
+  max-height:40%;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none; 
+
+}
+.history::-webkit-scrollbar{
+  display:none;
+}
+
+.Food-FormContainer{
+  /* width: fit-content; */
+  /* margin:auto; */
+  /* justify-content: center; */
+}
+
+.Food{
+  width:98%;
+  border:solid black 1px;
+  border-radius:5px;
+  background-color: #fff;
+
+  
+
+
+  margin-bottom:10px;
+  border:solid 1px black;
+}
+.Food-Form {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+/* .Food-Form input {
+  width: 25%;
+  padding: 10px; 
+  margin-bottom: 15px; 
+  box-sizing: border-box; 
+} */
+.Submit{
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-self: center; */
+  animation: ease-in 1s; 
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.Submit:hover{
+  background-color: #4070c4;
+}
+.History-Container{
+  display:flex;
+}
+.History-Undo{
+  display: flex;
+  border:none;
+  background-color:inherit;
+  cursor: pointer;
+}
+
+  @media (max-width: 768px) {
+    
+    p,div {
+      font-size: 14px;
+    }
+    .Calorie-Container{
+      margin-top:15%;
+      margin-bottom: 0;
+    }
+    .BottomBar{
+      width:100%;
+    }
+    .popup-content{
+      width:75%;
+    }
+    .Navigation-Button{
+      width:50%;
+
+    }
+    .Navigation-Container{
+        width:100%;
+    }
+    .Navigation-Favorite{
+      width: 100%;
+    }
+    .Food-Form {
+      display: inline-block; /* Stack the inputs horizontally for small screens */
+      margin-right: 10px; /* Add space between each input */
+      margin-bottom: 10px; /* Add space below each input */
+    }
+    .Bg-Cont-Cont{
+      /* max-width: 100%;
+      display:flex; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 120px;
+      margin-top:-150px;
+      
+    }
+    .Bg-Container {
+      max-width: 100%; /* Adjust for smaller screens */
+      margin-top:0;
+
+      max-width: 75%;
+      min-width: 30%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      text-align: justify;
+      height: 100%;
+
+
+    }
+  }
+ 
+
