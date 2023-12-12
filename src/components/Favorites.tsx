@@ -12,9 +12,11 @@ export const Favorites = ({lock}:any) =>{
         if (Favorites){
           setFavorite(JSON.parse(Favorites))
 
+        
         }
         isInitialMount.current = false;
-   },[])
+       
+   },[])  
    
    const removeFav = (itemToRemove) =>{
     setFavorite((prevFavorite) =>

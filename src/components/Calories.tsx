@@ -214,21 +214,21 @@ export const Calories = ({uid}:any) =>{
 
   useEffect(() =>{
     const localHistory = JSON.parse(localStorage.getItem('history'))
-    const Favorites = localStorage.getItem('favorite')
+    const Favorites = JSON.parse(localStorage.getItem('favorite'))
     if (localHistory){
 
       setHistory(localHistory)
     }
     if (Favorites){
-      setFavorites(JSON.parse(Favorites))
+      setFavorites(Favorites)
 
-      isInitialMount.current = false;
     }
+    isInitialMount.current = false;
   },[])
   useEffect(() =>{
-    if (!isInitialMount.current) {
-      localStorage.setItem('favorite', JSON.stringify(favorites));
-    }
+    // if (!isInitialMount.current) {
+    //   localStorage.setItem('favorite', JSON.stringify(favorites));
+    // }
   },[favorites])
 
   const handleClear = () => {
@@ -243,7 +243,10 @@ export const Calories = ({uid}:any) =>{
   
   const handleFavorite = (item) =>{
     setFavorites(prev => [...prev, item]);
-
+    
+   if (!isInitialMount.current) {
+      localStorage.setItem('favorite', JSON.stringify(favorites));
+    }
   }
  
     return(
