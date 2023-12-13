@@ -225,11 +225,11 @@ export const Calories = ({uid}:any) =>{
     }
     isInitialMount.current = false;
   },[])
-  useEffect(() =>{
-    // if (!isInitialMount.current) {
-    //   localStorage.setItem('favorite', JSON.stringify(favorites));
-    // }
-  },[favorites])
+  // useEffect(() =>{
+    
+  //     localStorage.setItem('favorite', JSON.stringify(favorites));
+    
+  // },[favorites])
 
   const handleClear = () => {
     set(userRef,{
@@ -243,10 +243,11 @@ export const Calories = ({uid}:any) =>{
   
   const handleFavorite = (item) =>{
     setFavorites(prev => [...prev, item]);
-    
-   if (!isInitialMount.current) {
-      localStorage.setItem('favorite', JSON.stringify(favorites));
-    }
+    localStorage.setItem('favorite', JSON.stringify([...favorites, item]));
+  
+  //  if (!isInitialMount.current) {
+  //     localStorage.setItem('favorite', JSON.stringify(favorites));
+  //   }
   }
  
     return(
