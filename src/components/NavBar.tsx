@@ -82,7 +82,7 @@ const firebaseConfig = {
       <div className="Nav">
   
       <img className='Logo' src={'logo.png'}></img>
-      {user ? <div className='flexEmail'><div>{user?.email}</div><button onClick={handleLogout}>Sign Out</button></div>:<button className="Nav-Auth" onClick={handleLogin}>Google Login</button>}
+      {user ? <div className='flexEmail'><div>{user?.email}</div><button className="Nav-Auth" onClick={handleLogout}>Sign Out</button></div>:<button className="Nav-Auth" onClick={handleLogin}>Google Login</button>}
       
     </div>
       </div>

@@ -1,8 +1,8 @@
-import axios from "axios";
+
 import { useEffect, useRef, useState } from "react"
 import { Arrows } from "./arrows";
 import { initializeApp } from "firebase/app";
-import { child, get, getDatabase,onValue,ref,set, update } from "firebase/database";
+import {  getDatabase,onValue,ref,set } from "firebase/database";
 import { initializeAppCheck,ReCaptchaV3Provider } from "firebase/app-check";
 
 
@@ -225,11 +225,7 @@ export const Calories = ({uid}:any) =>{
     }
     isInitialMount.current = false;
   },[])
-  // useEffect(() =>{
-    
-  //     localStorage.setItem('favorite', JSON.stringify(favorites));
-    
-  // },[favorites])
+ 
 
   const handleClear = () => {
     set(userRef,{
@@ -245,9 +241,7 @@ export const Calories = ({uid}:any) =>{
     setFavorites(prev => [...prev, item]);
     localStorage.setItem('favorite', JSON.stringify([...favorites, item]));
   
-  //  if (!isInitialMount.current) {
-  //     localStorage.setItem('favorite', JSON.stringify(favorites));
-  //   }
+ 
   }
  
     return(
@@ -255,14 +249,12 @@ export const Calories = ({uid}:any) =>{
 
         <div className="Calorie-Container">
             <div className="Calorie-Grid">
-            <button><svg height='24' width='24' focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="AutorenewRoundedIcon"><path d="M12 6v1.79c0 .45.54.67.85.35l2.79-2.79c.2-.2.2-.51 0-.71l-2.79-2.79c-.31-.31-.85-.09-.85.36V4c-4.42 0-8 3.58-8 8 0 1.04.2 2.04.57 2.95.27.67 1.13.85 1.64.34.27-.27.38-.68.23-1.04C6.15 13.56 6 12.79 6 12c0-3.31 2.69-6 6-6zm5.79 2.71c-.27.27-.38.69-.23 1.04.28.7.44 1.46.44 2.25 0 3.31-2.69 6-6 6v-1.79c0-.45-.54-.67-.85-.35l-2.79 2.79c-.2.2-.2.51 0 .71l2.79 2.79c.31.31.85.09.85-.35V20c4.42 0 8-3.58 8-8 0-1.04-.2-2.04-.57-2.95-.27-.67-1.13-.85-1.64-.34z"></path></svg></button>
+            {/* <button><svg height='24' width='24' focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="AutorenewRoundedIcon"><path d="M12 6v1.79c0 .45.54.67.85.35l2.79-2.79c.2-.2.2-.51 0-.71l-2.79-2.79c-.31-.31-.85-.09-.85.36V4c-4.42 0-8 3.58-8 8 0 1.04.2 2.04.57 2.95.27.67 1.13.85 1.64.34.27-.27.38-.68.23-1.04C6.15 13.56 6 12.79 6 12c0-3.31 2.69-6 6-6zm5.79 2.71c-.27.27-.38.69-.23 1.04.28.7.44 1.46.44 2.25 0 3.31-2.69 6-6 6v-1.79c0-.45-.54-.67-.85-.35l-2.79 2.79c-.2.2-.2.51 0 .71l2.79 2.79c.31.31.85.09.85-.35V20c4.42 0 8-3.58 8-8 0-1.04-.2-2.04-.57-2.95-.27-.67-1.13-.85-1.64-.34z"></path></svg></button> */}
             <button onClick={handleClear} className="ClearBut">Clear</button>
 
             <div className="Calories">Calories {calorieData.calories}</div>
 
-            {/* </div> */}
-
-            {/* <div className="Calorie-BreakDown"> */}
+        
                 <div className="Calorie-BreakDown">Fat {calorieData.fats} <Arrows onPressUp={() => handleAdd('fats',9)} onPressDown={() => handleSub('fat',9)}  /> </div>
                 <div className="Calorie-BreakDown">Carbs {calorieData.carbs} <Arrows onPressUp={() => handleAdd('carbs',4)} onPressDown={() => handleSub('carbs',4)}  /></div>
                 <div className="Calorie-BreakDown">Protein {calorieData.protein} <Arrows onPressUp={() => handleAdd('protein',4)} onPressDown={() => handleSub('protein',4)}  /></div>
@@ -270,7 +262,7 @@ export const Calories = ({uid}:any) =>{
 
             <div className="AddCal">
               
-            <button onClick={() => setOpen(!popup)}>Add Food</button>
+            <button className="AddFood" onClick={() => setOpen(!popup)}>Add Food</button>
       {popup && (
         <div className="overlay">
           <div className="popup-content">
@@ -289,7 +281,7 @@ export const Calories = ({uid}:any) =>{
           type="number"
           className="Food-Form"
           placeholder="Enter Fats"
-          // defaultValue={calorieData.fats}
+         
           onChange={(e) => handleInputChange('fats', e.target.value)}
         />
 
@@ -297,7 +289,7 @@ export const Calories = ({uid}:any) =>{
           type="number"
           className="Food-Form"
           placeholder="Enter Carbs"
-          // defaultValue={calorieData.carbs}
+         
           onChange={(e) => handleInputChange('carbs', e.target.value)}
         />
 
@@ -305,7 +297,7 @@ export const Calories = ({uid}:any) =>{
           type="number"
           className="Food-Form"
           placeholder="Enter Protein"
-          // defaultValue={calorieData.protein}
+         
           onChange={(e) => handleInputChange('protein', e.target.value)}
         />
 

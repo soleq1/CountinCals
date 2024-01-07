@@ -5,13 +5,9 @@ export const  Chunks = ({response}) =>{
     const [displayedResponse, setDisplayedResponse] = useState([]);
     const [responseComplete, setResponseComplete] = useState(false);
 
-    
-    // useEffect(() =>{
-    //     setDisplayedResponse(response)
-    // },[])
+   
     useEffect(() => {
-        // setDisplayedResponse(prev => prev.concat(response));
-            // setDisplayedResponse(prevMessages => [...prevMessages, response]);
+       
             if (!response){
                 return
             }
@@ -21,7 +17,7 @@ export const  Chunks = ({response}) =>{
                     if (prevMessages) {
                         return [...prevMessages, response];
                     } else {
-                        return prevMessages; // No change if response is empty
+                        return prevMessages; 
                     }
                 });
                 
@@ -40,15 +36,7 @@ useEffect(() =>{
 },[displayedResponse])
 
     return(
-    //     <div className="message-container">
-    //         {displayedResponse ? 
-    //     displayedResponse.map(item => (
-    //         <div className="AiMsg" key={item.id}>
-    //         {item.content}
-    //       </div>
-    //     ))
-    // :<div></div>}
-    //   </div>
+   
     
     <div className="message-container">
     { displayedResponse && displayedResponse.map((item, index) => (
@@ -61,4 +49,3 @@ useEffect(() =>{
     ) 
 }
 
-{/* <div className="AiMsg">{displayedResponse}</div> */}

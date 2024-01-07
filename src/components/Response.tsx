@@ -16,7 +16,7 @@ import { Navigation } from './Navigation'
     const handleTax =  async (e:any)  =>{
       e.preventDefault()
       setLoading(true)
-      await axios.post('http://localhost:3000/',{data: state})
+      await axios.post('https://macrosgbt.onrender.com/',{data: state})
       .then(response => {
         setResponse(response.data)
         setLoading(false)

@@ -1,9 +1,9 @@
-import { Route, Routes, useNavigate, useRoutes } from "react-router"
-import { Favorites } from "./Favorites"
-import routes from "./routes"
-import { BrowserRouter } from "react-router-dom"
-import { Link } from "react-router-dom"
-import App from "../App"
+import {  useNavigate,  } from "react-router"
+// import { Favorites } from "./Favorites"
+// import routes from "./routes"
+// import { BrowserRouter } from "react-router-dom"
+// import { Link } from "react-router-dom"
+// import App from "../App"
 
 export const Navigation = () =>{
     const navigate = useNavigate()
@@ -22,30 +22,5 @@ export const Navigation = () =>{
         </button>
       </div>
 
-
-
-
-
-      
-
-
-
-
-//  <div className="Navigation-Container">
-// <Link to="/">
-//   <div className="Navigation-Button">
-//     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
-//       {/* Your path here */}
-//     </svg>
-//   </div>
-// </Link>
-// <Link to="/favorite">
-//   <div className="Navigation-Button">
-//     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512">
-//       {/* Your path here */}
-//     </svg>
-//   </div>
-// </Link>
-// </div> 
     )
 } 

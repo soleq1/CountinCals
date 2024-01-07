@@ -4,12 +4,12 @@ import { Calories } from './components/Calories'
 // import { Navbar } from './components/NavBar'
 import { initializeApp } from "firebase/app";
 import { setPersistence,browserLocalPersistence } from "firebase/auth";
-import axios from "axios";
-import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithRedirect, signInAnonymously, onAuthStateChanged } from "firebase/auth";
+// import axios from "axios";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "firebase/auth";
 import Response from './components/Response'
 import { useState,useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { Favorites } from './components/Favorites';
+// import { Route, Routes } from 'react-router-dom';
+// import { Favorites } from './components/Favorites';
 import { initializeAppCheck,ReCaptchaV3Provider } from 'firebase/app-check';
 
 

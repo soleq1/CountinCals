@@ -37,6 +37,7 @@ export const Favorites = ({lock}:any) =>{
         {favorite !== null ? (
   <div>
     <div>Favorites Here</div>
+    <br></br>
     <div className="Favorite-Scroll">
 
     {favorite.map((item) => (
@@ -48,7 +49,7 @@ export const Favorites = ({lock}:any) =>{
     ))}
   </div>
   </div>
-) : <div>See Favorites Here</div>}
+) : <div> See Favorites Here</div>}
         </div>
         <div className="Navigation-Favorite">
         
