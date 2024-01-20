@@ -37,7 +37,7 @@ export const Favorites = ({lock}:any) =>{
         {favorite !== null ? (
   <div>
     <div>Favorites Here</div>
-    <br></br>
+    
     <div className="Favorite-Scroll">
 
     {favorite.map((item) => (
